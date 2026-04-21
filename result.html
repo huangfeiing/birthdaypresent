@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>你的物品 · Birthday Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <p class="masthead__eyebrow">Birthday Object Lab</p>
+    <h1 class="masthead__title">你的<em>专属物品</em></h1>
+    <p class="masthead__sub">由出生时间精准匹配，属于你的那件</p>
+  </header>
+
+  <div class="deco-rule"><span class="deco-rule__dot"></span></div>
+
+  <!-- Result area -->
+  <main id="resultArea">
+    <div class="spinner-wrap" id="loadingState">
+      <div class="spinner"></div>
+      <p class="spinner-text">正在寻找你的物品…</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Birthday Object Lab &nbsp;·&nbsp; 2,000+ items &nbsp;·&nbsp; 8,784 combinations
+  </footer>
+</div>
+
+<script src="items.js"></script>
+<script src="result.js"></script>
+</body>
+</html>

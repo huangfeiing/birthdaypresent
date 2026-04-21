@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>你的生日物品 · Birthday Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <p class="masthead__eyebrow">Birthday Object Lab</p>
+    <h1 class="masthead__title">你的生日<em>物品</em></h1>
+    <p class="masthead__sub">以出生的月、日、时辰，召唤属于你的那件物品</p>
+  </header>
+
+  <div class="deco-rule"><span class="deco-rule__dot"></span></div>
+
+  <!-- Input card -->
+  <main>
+    <div class="card">
+      <form id="matchForm" novalidate>
+
+        <!-- 月 · 日 -->
+        <div class="form-section">
+          <label class="form-section__label">出生月份 &amp; 日期</label>
+          <div class="select-group">
+            <div class="custom-select">
+              <select id="selMonth" required>
+                <option value="" disabled selected>— 月 —</option>
+                <option value="1">一月 January</option>
+                <option value="2">二月 February</option>
+                <option value="3">三月 March</option>
+                <option value="4">四月 April</option>
+                <option value="5">五月 May</option>
+                <option value="6">六月 June</option>
+                <option value="7">七月 July</option>
+                <option value="8">八月 August</option>
+                <option value="9">九月 September</option>
+                <option value="10">十月 October</option>
+                <option value="11">十一月 November</option>
+                <option value="12">十二月 December</option>
+              </select>
+            </div>
+            <div class="custom-select">
+              <select id="selDay" required>
+                <option value="" disabled selected>— 日 —</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 时辰 -->
+        <div class="form-section">
+          <label class="form-section__label">出生时辰（0 – 23 时）</label>
+          <div class="hour-grid" id="hourGrid" role="radiogroup" aria-label="时辰选择"></div>
+          <input type="hidden" id="hiddenHour" value="" />
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn" disabled>
+          查看我的物品
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Birthday Object Lab &nbsp;·&nbsp; 2,000+ items &nbsp;·&nbsp; 8,784 combinations
+  </footer>
+</div>
+
+<script src="items.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
