@@ -49,7 +49,7 @@ const PIXABAY_KEY = '55529302-ccc5cccb5afef458d8ae26e66';
 
 async function imageUrl(keyword) {
   const q = encodeURIComponent(keyword);
-  const url = `https://pixabay.com/api/?key=${PIXABAY_KEY}&q=${q}&image_type=photo&per_page=5&safesearch=true&orientation=horizontal`;
+  const url = `https://pixabay.com/api/?key=${PIXABAY_KEY}&q=${q}&image_type=photo&per_page=3&safesearch=true&orientation=horizontal`;
   try {
     const res = await fetch(url);
     const data = await res.json();
