@@ -44,15 +44,24 @@ function getZodiac(month, day) {
   return '摩羯座';
 }
 
-// ── 图片 URL（Picsum Photos，seed 固定则图片固定）────────────────────────────────
-function imageUrl(keyword) {
-  // 用 keyword 做 seed，保证同一物品永远对应同一张图
-  const seed = encodeURIComponent(keyword.replace(/\s+/g, '-').toLowerCase());
-  return `https://picsum.photos/seed/${seed}/800/600`;
+// ── Pixabay 图片（按关键词搜索真实摄影图）────────────────────────────────────────
+const PIXABAY_KEY = '55529302-ccc5cccb5afef458d8ae26e66';
+
+async function imageUrl(keyword) {
+  const q = encodeURIComponent(keyword);
+  const url = `https://pixabay.com/api/?key=${PIXABAY_KEY}&q=${q}&image_type=photo&per_page=5&safesearch=true&orientation=horizontal`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.hits && data.hits.length > 0) {
+      return data.hits[0].webformatURL;
+    }
+  } catch(e) {}
+  return null;
 }
 
 // ── 主逻辑 ────────────────────────────────────────────────────────────────────
-(function main() {
+(async function main() {
   const params = new URLSearchParams(location.search);
   const month  = parseInt(params.get('month'));
   const day    = parseInt(params.get('day'));
@@ -67,7 +76,7 @@ function imageUrl(keyword) {
   const item    = ITEMS[getItemIndex(month, day, hour)];
   const zodiac  = getZodiac(month, day);
   const shichen = SHICHEN[hour];
-  const imgSrc  = imageUrl(item.keyword);
+  const imgSrc  = await imageUrl(item.keyword);  // 等待 Pixabay 返回真实图片URL
 
   renderResult(area, { item, month, day, hour, zodiac, shichen, imgSrc });
 
