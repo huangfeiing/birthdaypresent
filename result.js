@@ -44,10 +44,11 @@ function getZodiac(month, day) {
   return '摩羯座';
 }
 
-// ── Unsplash Source 图片 URL ───────────────────────────────────────────────────
+// ── 图片 URL（Picsum Photos，seed 固定则图片固定）────────────────────────────────
 function imageUrl(keyword) {
-  const q = encodeURIComponent(keyword);
-  return `https://source.unsplash.com/800x600/?${q}`;
+  // 用 keyword 做 seed，保证同一物品永远对应同一张图
+  const seed = encodeURIComponent(keyword.replace(/\s+/g, '-').toLowerCase());
+  return `https://picsum.photos/seed/${seed}/800/600`;
 }
 
 // ── 主逻辑 ────────────────────────────────────────────────────────────────────
