@@ -2120,3 +2120,4 @@ const ITEMS = [
 { name:'星光宝石', keyword:'star sapphire star ruby asterism gem', category:'自然元素', description:'你在光下呈现六射星芒，是那种自带光环的稀有存在。' },
 { name:'夜光贝', keyword:'abalone shell iridescent night glow', category:'自然元素', description:'你在暗处也能发光，是那种不依赖外部认可也能闪耀的人。' },
 { name:'古代彩陶杯', keyword:'neolithic colored pottery cup ancient', category:'古典器物', description:'你是几千年前的日常饮器，是那种见证了人类最初文明生活的存在。' },
+];
